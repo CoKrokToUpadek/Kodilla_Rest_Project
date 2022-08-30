@@ -18,5 +18,4 @@ public class Task {
     private String title;
     @Column(name = "description")
     private String content;
-
 }
