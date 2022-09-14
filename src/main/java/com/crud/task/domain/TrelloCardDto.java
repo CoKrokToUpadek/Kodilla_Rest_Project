@@ -1,9 +1,11 @@
 package com.crud.task.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 //karty to konkretne pozycje na listach ktore znajduja sie na boardzie
 @Data
+@AllArgsConstructor
 public class TrelloCardDto {
     private String name;
     private String description;
