@@ -1,7 +1,9 @@
 package com.crud.task.controller;
 
 
+import com.crud.task.domain.CreatedTrelloCard;
 import com.crud.task.domain.TrelloBoardDto;
+import com.crud.task.domain.TrelloCardDto;
 import com.crud.task.trello.client.TrelloClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -33,4 +35,25 @@ public class TrelloController {
             });
         }
     }
+
+    @GetMapping("boards2")
+    public void getTrelloBoardsV2() {
+        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+
+        trelloBoards.forEach(trelloBoardDto -> {
+            System.out.println(trelloBoardDto.getId() + " - " + trelloBoardDto.getName());
+            System.out.println("This board contains lists: ");
+            trelloBoardDto.getLists().forEach(trelloList -> {
+                System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed());
+            });
+        });
+    }
+
+    @PostMapping("cards")
+    public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+        return trelloClient.createNewCard(trelloCardDto);
+    }
+
 }
+
+
