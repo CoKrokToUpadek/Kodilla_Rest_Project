@@ -40,7 +40,7 @@ public class TaskController {
 
 
 
-    @PutMapping
+    @PutMapping(value = "createTask")
     public  ResponseEntity<TaskDto> updateTask(@RequestBody  TaskDto taskDto){
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = service.saveTask(task);
