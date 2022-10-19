@@ -49,7 +49,7 @@ public class TrelloController {
 
 
     @GetMapping("boards2")
-    public void getTrelloBoardsV2() {
+    public List<TrelloBoardDto> getTrelloBoardsV2() {
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
         trelloBoards.forEach(trelloBoardDto -> {
@@ -59,6 +59,7 @@ public class TrelloController {
                 System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed());
             });
         });
+        return trelloBoards;
     }
 
     @PostMapping("cards")
