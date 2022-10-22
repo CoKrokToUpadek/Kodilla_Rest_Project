@@ -16,7 +16,7 @@ import static java.util.Optional.ofNullable;
 @Service
 @RequiredArgsConstructor
 public class TrelloService {
-    private static final String SUBJECT="Tasks: new Trello Card";
+    private static final String SUBJECT="Tasks- new Trello Card";
     private final TrelloClient trelloClient;
     private final SimpleEmailService emailService;
     private final AdminConfig adminConfig;
@@ -29,9 +29,9 @@ public class TrelloService {
         ofNullable(newCard).ifPresent(card -> emailService.send(
                 new Mail(
                         adminConfig.getAdminMail(),
+                        null,
                         SUBJECT,
-                        "New card: " + trelloCardDto.getName() + " has been created on your Trello account",
-                        null
+                        "New card: " + trelloCardDto.getName() + " has been created on your Trello account"
                 )));
         return newCard;
 
