@@ -40,7 +40,7 @@ public class TaskController {
 
 
 
-    @PutMapping(value = "createTask")
+    @PutMapping(value = "updateTask")
     public  ResponseEntity<TaskDto> updateTask(@RequestBody  TaskDto taskDto){
         Task task = taskMapper.mapToTask(taskDto);
         Task savedTask = service.saveTask(task);
@@ -48,9 +48,10 @@ public class TaskController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createTask(@RequestBody TaskDto taskDto) {
+    public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto taskDto) {
         Task task = taskMapper.mapToTask(taskDto);
         service.saveTask(task);
-        return ResponseEntity.ok().build();
+        Task savedTask = service.saveTask(task);
+        return ResponseEntity.ok(taskMapper.mapToTaskDto(savedTask));
     }
 }
