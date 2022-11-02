@@ -31,18 +31,8 @@ public class ControllerTestSuite {
         //when
         ResponseEntity<TaskDto> task= taskController.getTask(1L);
         //then
-        Assertions.assertEquals("updated task 1",task.getBody().getTitle());
+        Assertions.assertEquals("testName",task.getBody().getTitle());
 
-    }
-
-    @Test
-    void deleteWithErrorTest() {
-        //given
-        //when
-        Assertions.assertThrows(TaskNotFoundException.class, () -> {
-            taskController.deleteTask(312L);
-        });
-        //then
     }
 
 }
