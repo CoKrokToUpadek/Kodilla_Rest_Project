@@ -23,6 +23,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
@@ -36,8 +38,8 @@ dependencies {
 	testImplementation 'com.google.code.gson:gson'
 
 
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
-	implementation 'org.springframework.boot:spring-boot-starter-mail'
+    //implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
 
 /*	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'*/
 
