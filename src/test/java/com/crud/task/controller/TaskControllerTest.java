@@ -2,23 +2,19 @@ package com.crud.task.controller;
 
 import com.crud.task.domain.Task;
 import com.crud.task.domain.TaskDto;
-import com.crud.task.domain.TrelloCardDto;
 import com.crud.task.mapper.TaskMapper;
 import com.crud.task.service.DbService;
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -118,11 +114,9 @@ class TaskControllerTest {
         //given
         Task task=new Task(1L,"testTitle","testContent");
         TaskDto taskDto =new TaskDto(1L,"testTitle","testContent");
-
-        when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(task);
+        when(taskMapper.mapToTask(taskDto)).thenReturn(task);
         when(service.saveTask(any(Task.class))).thenReturn(task);
-        when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
-
+        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
         //When & Then
@@ -145,9 +139,9 @@ class TaskControllerTest {
         //given
         Task task=new Task(1L,"testTitle","testContent");
         TaskDto taskDto =new TaskDto(1L,"testTitle","testContent");
-        when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(task);
+        when(taskMapper.mapToTask(taskDto)).thenReturn(task);
         when(service.saveTask(any(Task.class))).thenReturn(task);
-        when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
+        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
         //When & Then
