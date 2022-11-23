@@ -26,6 +26,11 @@ public class DbService {
         return repository.findById(id).orElseThrow(TaskNotFoundException::new);
     }
 
+    public Long countTasks(){
+        return repository.count();
+    }
+
+
     public Task saveTask(final Task task){
       return  repository.save(task);
     }
