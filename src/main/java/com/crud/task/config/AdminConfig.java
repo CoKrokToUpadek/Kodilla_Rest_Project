@@ -16,4 +16,7 @@ public class AdminConfig {
     @Value("${admin.companydetails}")
     private String companyName;
 
+    @Value("${admin.companydetails}")
+    private  String goodbyeMessage;
+
 }
