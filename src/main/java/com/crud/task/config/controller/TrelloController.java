@@ -1,4 +1,4 @@
-package com.crud.task.controller;
+package com.crud.task.config.controller;
 
 
 import com.crud.task.domain.CreatedTrelloCardDto;

@@ -1,5 +1,7 @@
 package com.crud.task.controller;
 
+import com.crud.task.config.controller.TaskController;
+import com.crud.task.config.controller.TaskNotFoundException;
 import com.crud.task.domain.TaskDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

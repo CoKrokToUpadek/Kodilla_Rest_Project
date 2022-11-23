@@ -1,4 +1,4 @@
-package com.crud.task.controller;
+package com.crud.task.config.controller;
 
 import com.crud.task.domain.Task;
 import com.crud.task.domain.TaskDto;
@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 

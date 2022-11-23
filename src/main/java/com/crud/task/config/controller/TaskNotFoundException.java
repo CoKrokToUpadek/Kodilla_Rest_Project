@@ -1,4 +1,4 @@
-package com.crud.task.controller;
+package com.crud.task.config.controller;
 
 public class TaskNotFoundException extends Exception{
 }

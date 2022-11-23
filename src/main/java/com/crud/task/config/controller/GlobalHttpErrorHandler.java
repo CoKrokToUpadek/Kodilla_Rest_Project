@@ -1,4 +1,4 @@
-package com.crud.task.controller;
+package com.crud.task.config.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

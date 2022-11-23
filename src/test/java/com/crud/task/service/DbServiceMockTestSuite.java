@@ -1,6 +1,6 @@
 package com.crud.task.service;
 
-import com.crud.task.controller.TaskNotFoundException;
+import com.crud.task.config.controller.TaskNotFoundException;
 import com.crud.task.domain.Task;
 import com.crud.task.repository.TaskRepository;
 import org.junit.jupiter.api.Assertions;
